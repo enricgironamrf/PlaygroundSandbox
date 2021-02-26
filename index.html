@@ -1,305 +1,199 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flowcards simulator</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="icon" href="/assets/favicon.png" />
-  </head>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Flowcards simulator</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" th:href="/css/styles.css">
+	<link rel="icon" th:href="/assets/favicon.png" />
+</head>
 
-  <body>
-    <header>
-      <img src="/assets/logo.svg" style="max-width: 100%; height: auto;" />
-    </header>
-    <div class="container">
-      <h1>The right message, to right people, at the right time.</h1>
-      <form
-        action="#"
-        th:action="/simulate"
-        th:object="${simulator"
-        method="get"
-        id="form"
-      >
-        <div class="form">
-          <input
-            type="url"
-            value=""
-            th:field="*{externalUrl"
-            class="form__input"
-            placeholder="Enter your website URL"
-          />
-          <input type="hidden" th:field="*{requestHostname" />
-          <div class="card-type" title="Page technology">
-            <input
-              class="form__radio"
-              type="radio"
-              id="typeAMP"
-              name="cardType"
-              value="amp"
-              checked
-            />
-            <label for="typeAMP">Web</label>
-            <input
-              class="form__radio"
-              type="radio"
-              id="typeWeb"
-              name="cardType"
-              value="web"
-            />
-            <label for="typeWeb">AMP</label>
-          </div>
-          <button class="form__button" type="submit" disabled>
-            Get your simulation
-          </button>
-          <div class="mobile-cta">
-            <button class="form__button" type="submit" disabled>
-              Get your simulation
-            </button>
-          </div>
-        </div>
-        <div class="grid-cards">
-          <label>
-            <input
-              type="radio"
-              value="homepage"
-              th:field="*{experience"
-              checked
-            />
-            <div class="card selected">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-homepage-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-homepage.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Homepage</h3>
-                <p class="card__text">
-                  Show the homepage of your site to any reader landing on an
-                  article.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="high_value_article"
-              th:field="*{experience"
-            />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-hero-425w.png"
-                />
-                <img class="card__image" src="/assets/cards/card-hero.png" />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">High value article</h3>
-                <p class="card__text">
-                  Show a single article with high RFV of your site to any reader
-                  landing on a page.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="top_articles" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-top-articles-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-top-articles.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Top articles</h3>
-                <p class="card__text">
-                  Show top articles contextualizing and loading them increasing
-                  discoverability.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="taboola" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-taboola-425w.png"
-                />
-                <img class="card__image" src="/assets/cards/card-taboola.png" />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Taboola</h3>
-                <p class="card__text">
-                  Load native ads in a Flowcards for increase visibility and
-                  maximize your revenue.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="multicard" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-multicard-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-multicard.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Multicard</h3>
-                <p class="card__text">
-                  Recirculate readers to your homepage, and monetize to taboola
-                  at the end.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="newsletter" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-newsletter-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-newsletter.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Newsletter</h3>
-                <p class="card__text">
-                  Increase the subscribers rate by showing an scroll bounded
-                  card.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="paywall" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-paywall-425w.png"
-                />
-                <img class="card__image" src="/assets/cards/card-paywall.png" />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Paywall</h3>
-                <p class="card__text">
-                  Flowcards™ allow you to create a contextualized and holistic
-                  experience to sign up users.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="facebook" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-facebook-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-facebook.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Facebook fan-page</h3>
-                <p class="card__text">
-                  Show the Facebook fan-page to engage your audience and get new
-                  followers.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input type="radio" value="telegram" th:field="*{experience" />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-telegram-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-telegram.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Telegram</h3>
-                <p class="card__text">
-                  Social strategy is key to diversify revenues. Get new
-                  followers and embrace your community.
-                </p>
-              </div>
-            </div>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="push_notifications"
-              th:field="*{experience"
-            />
-            <div class="card">
-              <picture>
-                <source
-                  media="(max-width: 425px)"
-                  srcset="/assets/cards/card-notifications-425w.png"
-                />
-                <img
-                  class="card__image"
-                  src="/assets/cards/card-notifications.png"
-                />
-              </picture>
-              <div class="card__content">
-                <h3 class="card__title">Push Notifications</h3>
-                <p class="card__text">
-                  Notifications with a scroll-bounded transition. Integrate an
-                  holistic experience for the users.
-                </p>
-              </div>
-            </div>
-          </label>
-        </div>
-      </form>
-    </div>
+<body>
+	<header>
+		<img th:src="/assets/logo.svg" style="max-width:100%;height:auto;">
+	</header>
+	<div class="container">
+		<h1>The right message, to right people, at the right time.</h1>
+		<form action="#" th:action="/simulate" th:object="${simulator" method="get" id="form">
+			<div class="form">
+				<input type="url" value="" th:field="*{externalUrl" class="form__input"
+					placeholder="Enter your website URL" />
+				<input type="hidden" th:field="*{requestHostname">
+				<div class="card-type" title="Page technology">
+					<input class="form__radio" type="radio" id="typeAMP" name="cardType" value="amp" checked>
+					<label for="typeAMP">Web</label>
+					<input class="form__radio" type="radio" id="typeWeb" name="cardType" value="web">
+					<label for="typeWeb">AMP</label>
+				</div>
+				<button class="form__button" type="submit" disabled>Get your simulation</button>
+				<div class="mobile-cta">
+					<button class="form__button" type="submit" disabled>Get your simulation</button>
+				</div>
+			</div>
+			<div class="grid-cards">
+				<label>
+					<input type="radio" value="homepage" th:field="*{experience" checked />
+					<div class="card selected">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-homepage-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-homepage.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Homepage</h3>
+							<p class="card__text">Show the homepage of your site to any reader landing on an article.
+							</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="high_value_article" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)" th:srcset="/assets/cards/card-hero-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-hero.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">High value article</h3>
+							<p class="card__text">Show a single article with high RFV of your site to any reader landing
+								on a
+								page.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="top_articles" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-top-articles-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-top-articles.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Top articles</h3>
+							<p class="card__text">Show top articles contextualizing and loading them increasing
+								discoverability.
+							</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="taboola" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-taboola-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-taboola.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Taboola</h3>
+							<p class="card__text">Load native ads in a Flowcards for increase visibility and maximize
+								your revenue.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="multicard" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-multicard-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-multicard.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Multicard</h3>
+							<p class="card__text">Recirculate readers to your homepage, and monetize to taboola at the
+								end.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="newsletter" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-newsletter-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-newsletter.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Newsletter</h3>
+							<p class="card__text">Increase the subscribers rate by showing an scroll bounded card.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="paywall" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-paywall-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-paywall.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Paywall</h3>
+							<p class="card__text">Flowcards™ allow you to create a contextualized and holistic
+								experience to sign up users.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="facebook" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-facebook-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-facebook.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Facebook fan-page</h3>
+							<p class="card__text">Show the Facebook fan-page to engage your audience and get new
+								followers.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="telegram" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-telegram-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-telegram.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Telegram</h3>
+							<p class="card__text">Social strategy is key to diversify revenues. Get new followers and
+								embrace your community.</p>
+						</div>
+					</div>
+				</label>
+				<label>
+					<input type="radio" value="push_notifications" th:field="*{experience" />
+					<div class="card">
+						<picture>
+							<source media="(max-width: 425px)"
+								th:srcset="/assets/cards/card-notifications-425w.png">
+							<img class="card__image" th:src="/assets/cards/card-notifications.png">
+						</picture>
+						<div class="card__content">
+							<h3 class="card__title">Push Notifications</h3>
+							<p class="card__text">Notifications with a scroll-bounded transition.
+								Integrate an holistic experience for the users.</p>
+						</div>
+					</div>
+				</label>
+			</div>
+		</form>
+	</div>
+	<script>
+		const myForm = document.getElementById("form");
+		const input = document.querySelector(".form__input");
+		const button = document.querySelectorAll(".form__button");
+		const requestHostname = document.getElementById("requestHostname");
+		requestHostname.value = window.location.origin;
 
-    <script>
-      const myForm = document.getElementById("form");
-      const input = document.querySelector(".form__input");
-      const button = document.querySelectorAll(".form__button");
-      const requestHostname = document.getElementById("requestHostname");
-      requestHostname.value = window.location.origin;
-
-      const stateHandle = (e) => {
+      	const stateHandle = (e) => {
         if (e.target.value.length === 0) {
           button.forEach((btn) => {
             btn.disabled = true;
