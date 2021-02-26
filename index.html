@@ -9,20 +9,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="icon" href="./assets/favicon.png" />
   </head>
 
   <body>
     <header>
-      <img src="/assets/logo.svg" style="max-width: 100%; height: auto;" />
+      <img src="./assets/logo.svg" style="max-width: 100%; height: auto;" />
     </header>
     <div class="container">
       <h1>The right message, to right people, at the right time.</h1>
       <form
         action="#"
         th:action="/simulate"
-        th:object="${simulator"
+        th:object="${simulator}"
         method="get"
         id="form"
       >
@@ -30,7 +30,7 @@
           <input
             type="url"
             value=""
-            th:field="*{externalUrl"
+            th:field="*{externalUrl}"
             class="form__input"
             placeholder="Enter your website URL"
           />
@@ -68,6 +68,7 @@
             <input
               type="radio"
               value="homepage"
+			  name="experience"
               th:field="* {experience}"
               checked
             />
@@ -75,11 +76,11 @@
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-homepage-425w.png"
+                  srcset="./assets/cards/card-homepage-425w.png"
                 />
                 <img
                   class="card__image"
-                  src="/assets/cards/card-homepage.png"
+                  src="./assets/cards/card-homepage.png"
                 />
               </picture>
               <div class="card__content">
@@ -94,6 +95,7 @@
           <label>
             <input
               type="radio"
+			  name="experience"
               value="high_value_article"
               th:field="* {experience}"
             />
@@ -101,9 +103,9 @@
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-hero-425w.png"
+                  srcset="./assets/cards/card-hero-425w.png"
                 />
-                <img class="card__image" src="/assets/cards/card-hero.png" />
+                <img class="card__image" src="./assets/cards/card-hero.png" />
               </picture>
               <div class="card__content">
                 <h3 class="card__title">High value article</h3>
@@ -117,6 +119,7 @@
           <label>
             <input
               type="radio"
+			  name="experience"
               value="top_articles"
               th:field="* {experience}"
             />
@@ -124,11 +127,11 @@
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-top-articles-425w.png"
+                  srcset="./assets/cards/card-top-articles-425w.png"
                 />
                 <img
                   class="card__image"
-                  src="/assets/cards/card-top-articles.png"
+                  src="./assets/cards/card-top-articles.png"
                 />
               </picture>
               <div class="card__content">
@@ -141,14 +144,14 @@
             </div>
           </label>
           <label>
-            <input type="radio" value="taboola" th:field="* {experience}" />
+            <input name="experience" type="radio" value="taboola" th:field="* {experience}" />
             <div class="card">
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-taboola-425w.png"
+                  srcset="./assets/cards/card-taboola-425w.png"
                 />
-                <img class="card__image" src="/assets/cards/card-taboola.png" />
+                <img class="card__image" src="./assets/cards/card-taboola.png" />
               </picture>
               <div class="card__content">
                 <h3 class="card__title">Taboola</h3>
@@ -160,16 +163,16 @@
             </div>
           </label>
           <label>
-            <input type="radio" value="multicard" th:field="* {experience}" />
+            <input type="radio" name="experience" value="multicard" th:field="* {experience}" />
             <div class="card">
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-multicard-425w.png"
+                  srcset="./assets/cards/card-multicard-425w.png"
                 />
                 <img
                   class="card__image"
-                  src="/assets/cards/card-multicard.png"
+                  src="./assets/cards/card-multicard.png"
                 />
               </picture>
               <div class="card__content">
@@ -182,16 +185,16 @@
             </div>
           </label>
           <label>
-            <input type="radio" value="newsletter" th:field="* {experience}" />
+            <input type="radio" name="experience" value="newsletter" th:field="* {experience}" />
             <div class="card">
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-newsletter-425w.png"
+                  srcset="./assets/cards/card-newsletter-425w.png"
                 />
                 <img
                   class="card__image"
-                  th:src="/assets/cards/card-newsletter.png"
+                  src="./assets/cards/card-newsletter.png"
                 />
               </picture>
               <div class="card__content">
@@ -204,16 +207,16 @@
             </div>
           </label>
           <label>
-            <input type="radio" value="paywall" th:field="* {experience}" />
+            <input type="radio" name="experience" value="paywall" th:field="* {experience}" />
             <div class="card">
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-paywall-425w.png"
+                  srcset="./assets/cards/card-paywall-425w.png"
                 />
                 <img
                   class="card__image"
-                  th:src="/assets/cards/card-paywall.png"
+                  src="./assets/cards/card-paywall.png"
                 />
               </picture>
               <div class="card__content">
@@ -226,16 +229,16 @@
             </div>
           </label>
           <label>
-            <input type="radio" value="facebook" th:field="* {experience}" />
+            <input type="radio" name="experience" value="facebook" th:field="* {experience}" />
             <div class="card">
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-facebook-425w.png"
+                  srcset="./assets/cards/card-facebook-425w.png"
                 />
                 <img
                   class="card__image"
-                  th:src="/assets/cards/card-facebook.png"
+                  src="./assets/cards/card-facebook.png"
                 />
               </picture>
               <div class="card__content">
@@ -248,16 +251,16 @@
             </div>
           </label>
           <label>
-            <input type="radio" value="telegram" th:field="* {experience}" />
+            <input type="radio" name="experience" value="telegram" th:field="* {experience}" />
             <div class="card">
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-telegram-425w.png"
+                  srcset="./assets/cards/card-telegram-425w.png"
                 />
                 <img
                   class="card__image"
-                  th:src="/assets/cards/card-telegram.png"
+                  src="./assets/cards/card-telegram.png"
                 />
               </picture>
               <div class="card__content">
@@ -272,6 +275,7 @@
           <label>
             <input
               type="radio"
+			  name="experience"
               value="push_notifications"
               th:field="* {experience}"
             />
@@ -279,11 +283,11 @@
               <picture>
                 <source
                   media="(max-width: 425px)"
-                  srcset="/assets/cards/card-notifications-425w.png"
+                  srcset="./assets/cards/card-notifications-425w.png"
                 />
                 <img
                   class="card__image"
-                  th:src="/assets/cards/card-notifications.png"
+                  src="./assets/cards/card-notifications.png"
                 />
               </picture>
               <div class="card__content">
